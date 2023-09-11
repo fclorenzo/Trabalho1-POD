@@ -110,5 +110,23 @@ int main(int argc, char *argv[])
   // Calculate the execution time in seconds
   cpu_time_used = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
   printf("Execution Time: %f seconds\n", cpu_time_used);
+
+  // Write the sorted data to "countingSorted.txt"
+  FILE *outputFile = fopen("countingSorted.txt", "w");
+  if (!outputFile)
+  {
+    printf("Error opening file 'countingSorted.txt' for writing.\n");
+    return 1;
+  }
+  for (int i = 0; i < n; i++)
+  {
+    fprintf(outputFile, "%d\n", array[i]);
+  }
+
+  // Write the execution time to the file
+  fprintf(outputFile, "Execution Time: %f seconds\n", cpu_time_used);
+
+  fclose(outputFile);
+
   return 0;
 }

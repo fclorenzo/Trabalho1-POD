@@ -119,5 +119,20 @@ int main(int argc, char *argv[])
     // Calculate the execution time in seconds
     cpu_time_used = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
     printf("Execution Time: %f seconds\n", cpu_time_used);
+
+    // Write the sorted data to "quickSorted.txt"
+    FILE *outputFile = fopen("quickSorted.txt", "w");
+    if (!outputFile)
+    {
+        printf("Error opening file 'quickSorted.txt' for writing.\n");
+        return 1;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        fprintf(outputFile, "%d\n", data[i]);
+    }
+    fprintf(outputFile, "Execution Time: %f seconds\n", cpu_time_used);
+    fclose(outputFile);
+
     return 0;
 }
