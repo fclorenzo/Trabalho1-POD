@@ -3,7 +3,7 @@
 #include <time.h>
 
 // Function to perform Shell Sort with gaps
-void shellSortWithGaps(int arr[], int n)
+void shellSort(int arr[], int n)
 {
     int gaps[8] = {701, 301, 132, 57, 23, 10, 4, 2};
 
@@ -29,17 +29,18 @@ void shellSortWithGaps(int arr[], int n)
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
+    if (argc != 3)
     {
-        printf("Usage: %s <number_of_values>\n", argv[0]);
+        printf("Usage: %s <number_of_values> <limit>\n", argv[0]);
         return 1;
     }
 
     int n = atoi(argv[1]);
+    int limit = atoi(argv[2]);
 
-    if (n <= 0)
+    if (n <= 0 || limit <= 0)
     {
-        printf("Please enter a valid positive integer for the number of values.\n");
+        printf("Please enter valid positive integers for the number of values and the limit.\n");
         return 1;
     }
 
@@ -53,17 +54,21 @@ int main(int argc, char *argv[])
 
     srand(time(NULL));
 
-    // Generate 'n' random numbers
+    // Generate 'n' partially sorted random numbers within the specified limit
     for (int i = 0; i < n; i++)
     {
-        arr[i] = rand() % 1000 + 1;
+        arr[i] = rand() % (limit + 1); // Ensure the generated number is <= limit
     }
 
     // Perform partial sorting using Shell Sort with gaps
-    shellSortWithGaps(arr, n);
+    shellSort(arr, n);
+
+    // Create the output file name
+    char filename[20];
+    sprintf(filename, "%dnPartRand.txt", n);
 
     // Open the file for writing
-    FILE *file = fopen("partNRand.txt", "w");
+    FILE *file = fopen(filename, "w");
 
     if (!file)
     {
@@ -80,7 +85,7 @@ int main(int argc, char *argv[])
     // Close the file
     fclose(file);
 
-    printf("%d partially sorted random numbers have been generated and written to 'partNRand.txt'.\n", n);
+    printf("%d partially sorted random numbers (<= %d) have been generated and written to '%s'.\n", n, limit, filename);
 
     // Free dynamically allocated memory
     free(arr);

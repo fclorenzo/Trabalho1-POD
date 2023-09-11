@@ -63,6 +63,7 @@ void printArray(int array[], int size)
   }
   printf("\n");
 }
+
 // Driver code
 int main(int argc, char *argv[])
 {
