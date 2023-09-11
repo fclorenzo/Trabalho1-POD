@@ -5,7 +5,7 @@
 
 void countingSort(int array[], int size)
 {
-  int output[10];
+  int output[500];
 
   // Find the largest element of the array
   int max = array[0];
@@ -15,11 +15,7 @@ void countingSort(int array[], int size)
       max = array[i];
   }
 
-  // The size of count must be at least (max+1) but
-  // we cannot declare it as int count(max+1) in C as
-  // it does not support dynamic memory allocation.
-  // So, its size is provided statically.
-  int count[10];
+  int count[max + 1];
 
   // Initialize count array with all zeros.
   for (int i = 0; i <= max; ++i)
@@ -107,9 +103,9 @@ int main(int argc, char *argv[])
   printf("Sorted array in ascending order: \n");
   printArray(array, n);
 
-  // Calculate the execution time in seconds
-  cpu_time_used = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
-  printf("Execution Time: %f seconds\n", cpu_time_used);
+  // Calculate the execution time in milliseconds
+  cpu_time_used = ((double)(end_time - start_time) / CLOCKS_PER_SEC) * 1000.0;
+  printf("Execution Time: %.4f milliseconds\n", cpu_time_used);
 
   // Write the sorted data to "countingSorted.txt"
   FILE *outputFile = fopen("countingSorted.txt", "w");
@@ -124,7 +120,7 @@ int main(int argc, char *argv[])
   }
 
   // Write the execution time to the file
-  fprintf(outputFile, "Execution Time: %f seconds\n", cpu_time_used);
+  fprintf(outputFile, "Execution Time: %.4f milliseconds\n", cpu_time_used);
 
   fclose(outputFile);
 

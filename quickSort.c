@@ -116,9 +116,9 @@ int main(int argc, char *argv[])
     printf("Sorted array in ascending order: \n");
     printArray(data, n);
 
-    // Calculate the execution time in seconds
-    cpu_time_used = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
-    printf("Execution Time: %f seconds\n", cpu_time_used);
+    // Calculate the execution time in milliseconds
+    cpu_time_used = ((double)(end_time - start_time) / CLOCKS_PER_SEC) * 1000.0;
+    printf("Execution Time: %.4f milliseconds\n", cpu_time_used);
 
     // Write the sorted data to "quickSorted.txt"
     FILE *outputFile = fopen("quickSorted.txt", "w");
@@ -131,7 +131,9 @@ int main(int argc, char *argv[])
     {
         fprintf(outputFile, "%d\n", data[i]);
     }
-    fprintf(outputFile, "Execution Time: %f seconds\n", cpu_time_used);
+
+    // Write the execution time to the file
+    fprintf(outputFile, "Execution Time: %.4f milliseconds\n", cpu_time_used);
     fclose(outputFile);
 
     return 0;
