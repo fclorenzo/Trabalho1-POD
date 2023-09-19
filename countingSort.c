@@ -93,12 +93,12 @@ int main(int argc, char *argv[])
   printArray(array, n);
 
   // Record the start time
-  start_time = clock();
+  start_time = (double)clock();
 
   countingSort(array, n);
 
   // Record the end time
-  end_time = clock();
+  end_time = (double)clock();
 
   printf("Sorted array in ascending order: \n");
   printArray(array, n);

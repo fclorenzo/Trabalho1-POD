@@ -105,13 +105,13 @@ int main(int argc, char *argv[])
     printArray(data, n);
 
     // Record the start time
-    start_time = clock();
+    start_time = (double)clock();
 
     // perform quicksort on data
     quickSort(data, 0, n - 1);
 
     // Record the end time
-    end_time = clock();
+    end_time = (double)clock();
 
     printf("Sorted array in ascending order: \n");
     printArray(data, n);
