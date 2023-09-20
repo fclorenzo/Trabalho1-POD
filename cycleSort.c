@@ -4,7 +4,7 @@
 
 void cycle_sort(int *);
 
-void main()
+int main(int argc, char *argv[])
 {
     int a[MAX], i;
 
@@ -12,12 +12,10 @@ void main()
     {
         scanf("%d", &a[i]);
     }
+
     cycle_sort(a);
-    printf("sorted elements are :\n");
-    for (i = 0; i < MAX; i++)
-    {
-        printf("%d", a[i]);
-    }
+
+    return 0;
 }
 
 /* sorts elements using cycle sort algorithm */
