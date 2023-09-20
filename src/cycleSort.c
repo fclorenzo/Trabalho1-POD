@@ -1,10 +1,12 @@
+// fonte: https://www.sanfoundry.com/c-program-cyclesort/
+
 #include <stdio.h>
 
 #define MAX 500
 
 void cycle_sort(int *);
 
-int main(int argc, char *argv[])
+int main()
 {
     int a[MAX], i;
 
