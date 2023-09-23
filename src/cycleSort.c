@@ -2,9 +2,9 @@
 
 #include <stdio.h>
 
-#define MAX 500
+#define MAX 100
 
-void cycle_sort(int *);
+void cycle_sort(int *a);
 
 int main()
 {

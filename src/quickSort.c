@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <time.h>
 
+#define MAX 1000000
+
 // function to swap elements
 void swap(int *a, int *b)
 {
@@ -62,19 +64,12 @@ void quickSort(int array[], int low, int high)
     }
 }
 
-// function to print array elements
-void printArray(int array[], int size)
-{
-    for (int i = 0; i < size; ++i)
-    {
-        printf("%d  ", array[i]);
-    }
-    printf("\n");
-}
 
 // main function
 int main(int argc, char *argv[])
 {
+    int data[MAX]; // Modify the size as needed
+    int n = 0;
     if (argc != 2)
     {
         printf("Usage: %s <filename>\n", argv[0]);
@@ -90,51 +85,18 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    int data[500]; // Modify the size as needed
-    int n = 0;
     while (fscanf(file, "%d", &data[n]) != EOF)
     {
         n++;
     }
     fclose(file);
 
-    clock_t start_time, end_time;
-    double cpu_time_used;
+    // while (scanf("%d", &data[n]))
+    // {
+    //     n++;
+    // }
 
-    printf("Unsorted Array\n");
-    printArray(data, n);
-
-    // Record the start time
-    start_time = (double)clock();
-
-    // perform quicksort on data
     quickSort(data, 0, n - 1);
-
-    // Record the end time
-    end_time = (double)clock();
-
-    printf("Sorted array in ascending order: \n");
-    printArray(data, n);
-
-    // Calculate the execution time in milliseconds
-    cpu_time_used = ((double)(end_time - start_time) / CLOCKS_PER_SEC) * 1000.0;
-    printf("Execution Time: %.4f milliseconds\n", cpu_time_used);
-
-    // Write the sorted data to "quickSorted.txt"
-    FILE *outputFile = fopen("quickSorted.txt", "w");
-    if (!outputFile)
-    {
-        printf("Error opening file 'quickSorted.txt' for writing.\n");
-        return 1;
-    }
-    for (int i = 0; i < n; i++)
-    {
-        fprintf(outputFile, "%d\n", data[i]);
-    }
-
-    // Write the execution time to the file
-    fprintf(outputFile, "Execution Time: %.4f milliseconds\n", cpu_time_used);
-    fclose(outputFile);
 
     return 0;
 }
