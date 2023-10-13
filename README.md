@@ -13,3 +13,6 @@ A apresentação deverá compreender, no mínimo, os seguintes tópicos:
 * descrição geral dos algoritmos
 * aplicações práticas dos mesmos (quando usar)
 * análise comparando os algoritmos em execução real, idealmente mostrando em que situação(ões) um é melhor do que o outro. Podem ser utilizados os códigos fornecidos em aula. Envie os códigos-fonte usados junto com a apresentação.
+
+## Vídeo sobre quick sort e counting sort
+<https://youtu.be/deQbAI9BAlw>
