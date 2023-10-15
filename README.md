@@ -16,3 +16,4 @@ A apresentação deverá compreender, no mínimo, os seguintes tópicos:
 
 ## Vídeo sobre quick sort e counting sort
 <https://youtu.be/deQbAI9BAlw>
+https://veed.io/view/e0bca838-6c50-4f2e-b72b-cda0bb5cf271
