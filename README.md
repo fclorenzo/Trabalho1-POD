@@ -14,6 +14,5 @@ A apresentação deverá compreender, no mínimo, os seguintes tópicos:
 * aplicações práticas dos mesmos (quando usar)
 * análise comparando os algoritmos em execução real, idealmente mostrando em que situação(ões) um é melhor do que o outro. Podem ser utilizados os códigos fornecidos em aula. Envie os códigos-fonte usados junto com a apresentação.
 
-## Vídeo sobre quick sort e counting sort
-<https://youtu.be/deQbAI9BAlw>
-https://veed.io/view/e0bca838-6c50-4f2e-b72b-cda0bb5cf271
+## Vídeo sobre quick sort, counting sort e cycle sort
+<https://www.veed.io/view/e0bca838-6c50-4f2e-b72b-cda0bb5cf271?panel=share>
